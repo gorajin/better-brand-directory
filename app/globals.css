@@ -127,9 +127,12 @@
 }
 
 body {
-  background: var(--background);
+  background: #f8fafc;
+  /* slate-50 - prevents white flicker on mobile */
   color: var(--foreground);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ============================================
