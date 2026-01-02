@@ -1,26 +1,282 @@
 @import "tailwindcss";
 
+/* ============================================
+   Brand Avatar Gradients (explicit for Tailwind v4)
+   ============================================ */
+.from-pink-500 {
+  --tw-gradient-from: #ec4899;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-rose-400 {
+  --tw-gradient-to: #fb7185;
+}
+
+.from-amber-400 {
+  --tw-gradient-from: #fbbf24;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-orange-300 {
+  --tw-gradient-to: #fdba74;
+}
+
+.from-amber-700 {
+  --tw-gradient-from: #b45309;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.from-amber-500 {
+  --tw-gradient-from: #f59e0b;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-amber-500 {
+  --tw-gradient-to: #f59e0b;
+}
+
+.from-green-500 {
+  --tw-gradient-from: #22c55e;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-emerald-400 {
+  --tw-gradient-to: #34d399;
+}
+
+.from-blue-500 {
+  --tw-gradient-from: #3b82f6;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-cyan-400 {
+  --tw-gradient-to: #22d3ee;
+}
+
+.from-sky-500 {
+  --tw-gradient-from: #0ea5e9;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-blue-400 {
+  --tw-gradient-to: #60a5fa;
+}
+
+.from-indigo-500 {
+  --tw-gradient-from: #6366f1;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-purple-400 {
+  --tw-gradient-to: #c084fc;
+}
+
+.from-slate-600 {
+  --tw-gradient-from: #475569;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-slate-400 {
+  --tw-gradient-to: #94a3b8;
+}
+
+.from-gray-500 {
+  --tw-gradient-from: #6b7280;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-gray-400 {
+  --tw-gradient-to: #9ca3af;
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+/* ============================================
+   Better Brand Directory - Clinical Clean Design System
+   ============================================ */
+
 :root {
+  /* Clinical Clean Palette */
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+
+  /* Signal Colors - ONLY for status */
+  --color-safe: #059669;
+  --color-safe-bg: #ecfdf5;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-caution: #d97706;
+  --color-caution-bg: #fffbeb;
+  --color-pending: #6b7280;
+  --color-pending-bg: #f9fafb;
+
+  /* Background & Foreground */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================
+   Data-Dense Table Styles (Bloomberg Terminal aesthetic)
+   ============================================ */
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.data-table th {
+  background: var(--color-surface);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.data-table tr:hover {
+  background: var(--color-surface);
+}
+
+/* ============================================
+   Evidence Card Status Styles
+   ============================================ */
+.evidence-card {
+  border: 2px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--color-bg);
+  transition: all 0.15s ease;
+}
+
+.evidence-card--pass,
+.evidence-card--nondetect {
+  border-color: var(--color-safe);
+  background: var(--color-safe-bg);
+}
+
+.evidence-card--fail {
+  border-color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+.evidence-card--pending {
+  border-color: var(--color-pending);
+  background: var(--color-pending-bg);
+}
+
+/* ============================================
+   Ingredient Pill Styles
+   ============================================ */
+.ingredient-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.ingredient-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-pill--safe:hover {
+  background: var(--color-safe-bg);
+  border-color: var(--color-safe);
+}
+
+.ingredient-pill--avoid:hover {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger);
+}
+
+.ingredient-pill--caution:hover {
+  background: var(--color-caution-bg);
+  border-color: var(--color-caution);
+}
+
+/* ============================================
+   Trust Score Circular Progress
+   ============================================ */
+.trust-score-ring {
+  transform: rotate(-90deg);
+}
+
+.trust-score-ring circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.trust-score-ring .bg {
+  stroke: var(--color-border);
+}
+
+.trust-score-ring .progress {
+  stroke: var(--color-safe);
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+/* ============================================
+   Compact Layout Utilities
+   ============================================ */
+.compact-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+}
+
+/* ============================================
+   Modal Overlay
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background: var(--color-bg);
+  border-radius: 0.5rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
