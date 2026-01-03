@@ -266,13 +266,15 @@ export default function BrandCard({ brand }: BrandCardProps) {
                         onMouseLeave={() => setShowTooltip(false)}
                     >
                         <div className="flex items-center gap-1.5 cursor-default">
-                            <div className={`w-2 h-2 rounded-full ${tier === 3 ? 'bg-emerald-500 animate-pulse' :
-                                tier === 2 ? 'bg-blue-500' :
-                                    'bg-slate-400'
+                            <div className={`w-2 h-2 rounded-full ${tier === 0 ? 'bg-red-500' :
+                                tier === 3 ? 'bg-emerald-500 animate-pulse' :
+                                    tier === 2 ? 'bg-blue-500' :
+                                        'bg-slate-400'
                                 }`} />
-                            <span className={`text-[10px] font-semibold uppercase tracking-wider ${tier === 3 ? 'text-emerald-600' :
-                                tier === 2 ? 'text-blue-600' :
-                                    'text-slate-400'
+                            <span className={`text-[10px] font-semibold uppercase tracking-wider ${tier === 0 ? 'text-red-600' :
+                                tier === 3 ? 'text-emerald-600' :
+                                    tier === 2 ? 'text-blue-600' :
+                                        'text-slate-400'
                                 }`}>
                                 {tierConfig.label}
                             </span>
