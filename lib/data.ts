@@ -4,7 +4,7 @@
  */
 
 import { supabase } from './supabase';
-import type { Brand, Product, TestResult } from '@/types/database';
+import type { Brand, Product, TestResult, CategoryInsight } from '@/types/database';
 
 // ============================================
 // BRAND QUERIES
@@ -209,3 +209,23 @@ export async function getBrandsByTestType(testType: string): Promise<Brand[]> {
 
     return data || [];
 }
+
+// ============================================
+// CATEGORY INSIGHTS
+// ============================================
+
+export async function getCategoryInsights(category: string): Promise<CategoryInsight[]> {
+    const { data, error } = await supabase
+        .from('category_insights')
+        .select('*')
+        .eq('category', category)
+        .order('created_at', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching category insights:', error);
+        return [];
+    }
+
+    return data || [];
+}
+

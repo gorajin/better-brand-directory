@@ -35,6 +35,15 @@ export interface BrandDocument {
   created_at: string;
 }
 
+// Category insights for "Critical Findings" warnings
+export interface CategoryInsight {
+  id: string;
+  category: string;
+  fact: string;
+  source?: string;
+  created_at: string;
+}
+
 export interface Product {
   id: string;
   brand_id: string;
