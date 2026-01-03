@@ -176,10 +176,11 @@ function getCategoryGradient(category: string): string {
     return gradients[category] || 'from-gray-500 to-gray-400';
 }
 
-// Format date for tooltip
-function formatDate(): string {
-    const now = new Date();
-    return now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+// Format verification date from brand data
+function formatVerifiedDate(verifiedAt?: string): string | null {
+    if (!verifiedAt) return null;
+    const date = new Date(verifiedAt);
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
 export default function BrandCard({ brand }: BrandCardProps) {
@@ -280,7 +281,10 @@ export default function BrandCard({ brand }: BrandCardProps) {
                         {/* Tooltip */}
                         {showTooltip && (
                             <div className="absolute z-50 top-full right-0 mt-2 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap">
-                                Last verified: {formatDate()}
+                                {formatVerifiedDate(brand.verified_at)
+                                    ? `Last verified: ${formatVerifiedDate(brand.verified_at)}`
+                                    : 'Pending verification'
+                                }
                                 <div className="absolute -top-1 right-3 w-2 h-2 bg-slate-900 rotate-45" />
                             </div>
                         )}

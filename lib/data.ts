@@ -24,6 +24,49 @@ export async function getAllBrands(): Promise<Brand[]> {
     return data || [];
 }
 
+/**
+ * Fetch brands with optional server-side filtering
+ * This is the primary function for the brands page - filters are applied at the database level
+ */
+export async function getBrands(options?: {
+    search?: string;
+    category?: string;
+    parentCategory?: string;
+    subCategories?: string[];
+}): Promise<Brand[]> {
+    let query = supabase
+        .from('brands')
+        .select('*')
+        .order('trust_score', { ascending: false });
+
+    // Apply search filter (name, category, sub_category, proof_type)
+    if (options?.search) {
+        const searchTerm = `%${options.search}%`;
+        query = query.or(
+            `name.ilike.${searchTerm},category.ilike.${searchTerm},sub_category.ilike.${searchTerm},proof_type.ilike.${searchTerm}`
+        );
+    }
+
+    // Apply category filter - exact match for sub-category
+    if (options?.category) {
+        query = query.eq('category', options.category);
+    }
+
+    // Apply parent category filter - match any sub-category within the parent
+    if (options?.subCategories && options.subCategories.length > 0) {
+        query = query.in('category', options.subCategories);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error('Error fetching brands:', error);
+        return [];
+    }
+
+    return data || [];
+}
+
 export async function getBrandBySlug(slug: string): Promise<Brand | null> {
     const { data, error } = await supabase
         .from('brands')

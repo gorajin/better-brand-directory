@@ -99,8 +99,8 @@ export default function Footer() {
             {/* Disclaimer + Copyright */}
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 py-6">
-                    <p className="text-[10px] text-slate-500 mb-4 leading-relaxed">
-                        <strong className="text-slate-400">Medical Disclaimer:</strong> The information on this site is for informational purposes only and is not intended as medical advice. Always consult with a healthcare professional before making health-related decisions.
+                    <p className="text-[10px] text-slate-400 mb-4 leading-relaxed">
+                        <strong className="text-slate-300">Medical Disclaimer:</strong> The information on this site is for informational purposes only and is not intended as medical advice. Always consult with a healthcare professional before making health-related decisions.
                     </p>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] text-slate-500">
                         <p>© {currentYear} Better Brand Directory. All rights reserved.</p>

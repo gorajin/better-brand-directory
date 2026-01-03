@@ -24,6 +24,7 @@ const brands = [
         proof_type: 'Heavy Metal & PFAS Testing',
         proof_description: 'Explicitly tests for heavy metals and PFAS. Discusses results openly.',
         affiliate_link: 'https://crunchi.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: '100% Pure',
@@ -34,6 +35,7 @@ const brands = [
         proof_type: 'Independent PFAS Testing',
         proof_description: 'Consistently passes Mamavation independent PFAS testing with "Non-Detect" results.',
         affiliate_link: 'https://www.100percentpure.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
     {
         name: 'Henné Organics',
@@ -44,6 +46,7 @@ const brands = [
         proof_type: 'Organic Fluorine Testing',
         proof_description: 'Has passed independent organic fluorine (PFAS) testing.',
         affiliate_link: 'https://henneorganics.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
     {
         name: 'Beautycounter',
@@ -54,6 +57,7 @@ const brands = [
         proof_type: 'Heavy Metal Transparency',
         proof_description: 'Historically the leader in heavy metal transparency. (Currently restructuring)',
         affiliate_link: 'https://www.beautycounter.com',
+        verified_at: '2025-12-01T00:00:00Z',
     },
     {
         name: 'Primally Pure',
@@ -64,6 +68,7 @@ const brands = [
         proof_type: 'Sourcing Transparency',
         proof_description: 'High sourcing transparency. Popular with non-toxic influencer community.',
         affiliate_link: 'https://primallypure.com',
+        verified_at: '2025-12-01T00:00:00Z',
     },
 
     // ============================================
@@ -78,6 +83,7 @@ const brands = [
         proof_type: 'Clean Label Purity Award',
         proof_description: 'Winner of "Purity Award" from Clean Label Project. Publishes purity standards.',
         affiliate_link: 'https://myserenitykids.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Cerebelly',
@@ -88,6 +94,7 @@ const brands = [
         proof_type: 'Batch-Level CoA',
         proof_description: 'Gold standard: QR code on every pouch links to that batch\'s heavy metal test results.',
         affiliate_link: 'https://cerebelly.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Once Upon a Farm',
@@ -98,6 +105,7 @@ const brands = [
         proof_type: 'Clean Label Purity Award',
         proof_description: '"Purity Award" winner. Cold-pressed for nutrient retention.',
         affiliate_link: 'https://onceuponafarmorganics.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
 
     // ============================================
@@ -112,6 +120,7 @@ const brands = [
         proof_type: 'Public Lab Results',
         proof_description: 'Entire brand built on "Mold & Mycotoxin Free." Publishes lab results on site.',
         affiliate_link: 'https://puritycoffee.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Lifeboost',
@@ -122,6 +131,7 @@ const brands = [
         proof_type: 'Third-Party Mycotoxin Testing',
         proof_description: 'Claims third-party testing for mycotoxins. Single-origin, shade-grown.',
         affiliate_link: 'https://lifeboostcoffee.com',
+        verified_at: '2025-12-01T00:00:00Z',
     },
 
     // ============================================
@@ -136,6 +146,7 @@ const brands = [
         proof_type: 'QR Traceability + Glyphosate Free',
         proof_description: 'QR code on every package traces ingredients. Verified Glyphosate Residue Free.',
         affiliate_link: 'https://onedegreeorganics.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Oatly',
@@ -146,6 +157,7 @@ const brands = [
         proof_type: 'Glyphosate Residue Free Certification',
         proof_description: 'Certified Glyphosate Residue Free by The Detox Project.',
         affiliate_link: 'https://oatly.com',
+        verified_at: '2025-12-01T00:00:00Z',
     },
     {
         name: 'Chobani',
@@ -156,6 +168,7 @@ const brands = [
         proof_type: 'Glyphosate Residue Free Certification',
         proof_description: 'Certified Glyphosate Residue Free by The Detox Project.',
         affiliate_link: 'https://chobani.com',
+        verified_at: '2025-12-01T00:00:00Z',
     },
     {
         name: 'Apollo Olive Oil',
@@ -166,6 +179,7 @@ const brands = [
         proof_type: 'Polyphenol Count Published',
         proof_description: 'California olive oil. Lists Polyphenol Count on bottle (freshness/potency indicator).',
         affiliate_link: 'https://apollooliveoil.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
 
     // ============================================
@@ -180,6 +194,7 @@ const brands = [
         proof_type: 'Track Your Lot Tool',
         proof_description: 'Has "Track Your Lot" tool. Enter lot number to download 3rd party lab results.',
         affiliate_link: 'https://sportsresearch.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Nootropics Depot',
@@ -190,6 +205,7 @@ const brands = [
         proof_type: 'In-House Lab + Published Data',
         proof_description: 'Reddit favorite. Massive in-house lab. Publishes rigorous testing data.',
         affiliate_link: 'https://nootropicsdepot.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Nordic Naturals',
@@ -200,6 +216,7 @@ const brands = [
         proof_type: 'IFOS 5-Star Rating',
         proof_description: 'IFOS (International Fish Oil Standards) 5-star rated. Batch results on IFOS site.',
         affiliate_link: 'https://nordicnaturals.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Thorne',
@@ -210,6 +227,7 @@ const brands = [
         proof_type: 'NSF Certified for Sport',
         proof_description: 'NSF Certified for Sport (highest standard, required for pro athletes).',
         affiliate_link: 'https://thorne.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
 
     // ============================================
@@ -224,6 +242,7 @@ const brands = [
         proof_type: 'Performance Data Sheet',
         proof_description: 'Publishes "Performance Data Sheet" proving removal of fluoride and PFAS.',
         affiliate_link: 'https://clearlyfiltered.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'AquaTru',
@@ -234,6 +253,7 @@ const brands = [
         proof_type: 'Independent Testing Sheets',
         proof_description: 'Reverse Osmosis system with public independent testing sheets.',
         affiliate_link: 'https://aquatru.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
     {
         name: 'Hydroviv',
@@ -244,6 +264,7 @@ const brands = [
         proof_type: 'City Water Data Custom Filters',
         proof_description: 'Custom filters based on your city\'s water data. Great personalization hook.',
         affiliate_link: 'https://hydroviv.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
 
     // ============================================
@@ -258,6 +279,7 @@ const brands = [
         proof_type: 'GOTS + MADE SAFE Certified',
         proof_description: 'GOTS (Global Organic Textile Standard) + MADE SAFE certified.',
         affiliate_link: 'https://naturepedic.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Avocado Green Mattress',
@@ -268,6 +290,7 @@ const brands = [
         proof_type: 'GOTS + Greenguard Gold',
         proof_description: 'GOTS + Greenguard Gold certified (low VOCs).',
         affiliate_link: 'https://avocadogreenmattress.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
 
     // ============================================
@@ -282,6 +305,7 @@ const brands = [
         proof_type: 'Leaching Test Reports',
         proof_description: '100% Ceramic. Publishes leaching tests showing no lead/cadmium.',
         affiliate_link: 'https://xtrema.com',
+        verified_at: '2025-10-15T00:00:00Z',
     },
     {
         name: 'Caraway',
@@ -292,6 +316,7 @@ const brands = [
         proof_type: 'No PTFE/PFOA Test Reports',
         proof_description: 'Publishes test reports showing no PTFE/PFOA. Trendy aesthetic.',
         affiliate_link: 'https://carawayhome.com',
+        verified_at: '2025-11-01T00:00:00Z',
     },
 ];
 

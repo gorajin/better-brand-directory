@@ -18,8 +18,21 @@ export interface Brand {
   proof_type?: ProofType;  // Dynamic proof type for UI behavior
   proof_url?: string;      // Link to evidence
   proof_description?: string;
+  verified_at?: string;    // Last verification timestamp (for trust display)
   created_at: string;
   updated_at: string;
+}
+
+// Multiple documents per brand (CoAs, certifications, test reports)
+export type DocumentType = 'CoA' | 'Certification' | 'Test Report' | 'Other';
+
+export interface BrandDocument {
+  id: string;
+  brand_id: string;
+  title: string;
+  url: string;
+  type?: DocumentType;
+  created_at: string;
 }
 
 export interface Product {

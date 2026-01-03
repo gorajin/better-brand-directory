@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { EvidenceCard, BrandCard } from '@/components';
 import { calculateTier, TIER_CONFIG } from '@/lib/tiers';
 import { getBrandBySlug, getProductsByBrandId, getAllBrands } from '@/lib/data';
@@ -51,6 +52,39 @@ const LAB_INDICATORS = [
     { label: 'Purity', status: 'Verified', detail: 'Identity and potency confirmed' },
 ];
 
+/**
+ * Dynamic SEO Metadata for brand pages
+ */
+export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const brand = await getBrandBySlug(slug);
+
+    if (!brand) {
+        return {
+            title: 'Brand Not Found | Better Brand Directory',
+        };
+    }
+
+    const tier = calculateTier(brand);
+    const tierLabel = TIER_CONFIG[tier].label;
+
+    return {
+        title: `${brand.name} - Safety Verification Report | Better Brand Directory`,
+        description: `See heavy metal and PFAS test results for ${brand.name}. Transparency Tier: ${tierLabel}. ${brand.proof_description || 'Verified transparency data for health-conscious consumers.'}`,
+        openGraph: {
+            title: `${brand.name} - Safety Report`,
+            description: `Transparency Tier: ${tierLabel}. ${brand.tagline || brand.proof_description || ''}`,
+        },
+    };
+}
+
+// Format verification date
+function formatVerifiedDate(verifiedAt?: string): string | null {
+    if (!verifiedAt) return null;
+    const date = new Date(verifiedAt);
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+
 export default async function BrandPage({ params }: BrandPageProps) {
     const { slug } = await params;
     const brand = await getBrandBySlug(slug);
@@ -71,8 +105,8 @@ export default async function BrandPage({ params }: BrandPageProps) {
     const tierConfig = TIER_CONFIG[tier];
     const certifications = extractCertifications(brand.proof_type);
 
-    // Format date
-    const updatedDate = new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    // Use real verification date from database
+    const updatedDate = formatVerifiedDate(brand.verified_at);
 
     return (
         <main className="min-h-screen bg-white">
@@ -87,8 +121,8 @@ export default async function BrandPage({ params }: BrandPageProps) {
                             <div>
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className={`w-2.5 h-2.5 rounded-full ${tier === 3 ? 'bg-emerald-500' :
-                                            tier === 2 ? 'bg-blue-500' :
-                                                'bg-slate-400'
+                                        tier === 2 ? 'bg-blue-500' :
+                                            'bg-slate-400'
                                         }`} />
                                     <h2 className="text-sm font-semibold text-slate-900 uppercase tracking-wide">
                                         Transparency Level
@@ -103,7 +137,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
                                     Last Verified
                                 </div>
                                 <div className="text-sm font-semibold text-slate-700">
-                                    {updatedDate}
+                                    {updatedDate || 'Pending'}
                                 </div>
                             </div>
                         </div>

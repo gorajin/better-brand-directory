@@ -18,6 +18,9 @@ const testTypeLabels: Record<TestType, string> = {
     Glyphosate: 'Glyphosate',
     Pesticides: 'Pesticides',
     Microplastics: 'Microplastics',
+    Mycotoxins: 'Mycotoxins',
+    VOCs: 'VOCs',
+    Leaching: 'Leaching',
 };
 
 const statusLabels: Record<TestStatus, string> = {
@@ -82,8 +85,8 @@ export default function EvidenceCard({
                 {/* Result */}
                 <div className="mb-3">
                     <span className={`text-lg font-bold ${status === 'Fail' ? 'text-[var(--color-danger)]' :
-                            status === 'Pass' || status === 'NonDetect' ? 'text-[var(--color-safe)]' :
-                                'text-[var(--color-pending)]'
+                        status === 'Pass' || status === 'NonDetect' ? 'text-[var(--color-safe)]' :
+                            'text-[var(--color-pending)]'
                         }`}>
                         {resultValue || statusLabels[status]}
                     </span>
